@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#302c28">
+  <meta name="description" content="和牛来一起走进夕照松岩谷地。按住方向键走动，轻触叫妈妈，拖动探索三维场景。">
+  <title>牛来 · 松岩谷地</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23403931'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='44'%3E牛%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main id="niulai-model-viewer" data-initial-view="hero" data-model-url="assets/character.glb" data-environment-url="assets/environment.glb">
+    <div data-stage>
+      <canvas tabindex="0" aria-label="牛来与夕照松岩谷地。单指拖动转视角，双指捏合缩放；用屏幕方向键或键盘方向键走动。">请使用支持三维画面的浏览器打开。</canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <header class="heading">
+        <div><p class="eyebrow">夕照 · 松岩谷地</p><h1>牛来<span>陪你走一会儿</span></h1></div>
+        <button type="button" class="reset" data-reset-position aria-label="回到起点并恢复视角" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1.7 7M4 4v6h6"/></svg><span>回到起点</span></button>
+      </header>
+      <p class="view-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12V5a2 2 0 0 1 4 0v6-2a2 2 0 0 1 4 0v3-1a2 2 0 0 1 4 0v5c0 4-2 6-6 6h-2c-2 0-3-1-4-2l-5-6a2 2 0 0 1 3-2l2 2"/></svg><span>单指拖动视角 <i>·</i> 双指捏合缩放</span></p>
+      <div class="load-screen" data-status role="status" aria-live="polite"><span class="loader" aria-hidden="true"></span><strong>牛来正在走进谷地…</strong><small>首次打开需要载入三维场景</small></div>
+      <div class="play-controls">
+        <div class="move-zone">
+          <div data-direction-pad role="group" aria-label="按住方向按钮走动，松开停下">
+            <button type="button" data-move="up" aria-label="向前走" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg></button>
+            <button type="button" data-move="left" aria-label="向左走" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+            <span class="pad-center" aria-hidden="true"><span></span></span>
+            <button type="button" data-move="right" aria-label="向右走" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            <button type="button" data-move="down" aria-label="向后走" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg></button>
+          </div>
+          <span class="control-label">按住走动 · 松开停下</span>
+        </div>
+        <div class="call-zone">
+          <button type="button" data-call-mama aria-label="叫妈妈，播放牛来原声" disabled><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 12H5v8h4l7 5V7l-7 5Zm12-1a7 7 0 0 1 0 10m4-14a12 12 0 0 1 0 18"/></svg><span>叫妈妈</span></button>
+          <span class="control-label" data-voice-status role="status" aria-live="polite">轻触听牛来的声音</span>
+        </div>
+      </div>
+      <p class="movement-status" data-move-status aria-live="polite">按住方向键，带牛来去散步</p>
+    </div>
+    <audio data-mama-audio src="assets/mama.wav" preload="auto" playsinline></audio>
+    <div hidden aria-hidden="true">
+      <input type="checkbox" data-follow checked><button data-stop></button>
+      <select data-animation><option value="0">静立</option></select><button data-play></button>
+      <input data-frame type="range" min="1" max="1" value="1"><output data-frame-output></output>
+      <select data-speed><option value="1">1</option></select><input data-wireframe type="checkbox">
+      <script type="application/octet-stream" data-model-bytes></script><script type="application/octet-stream" data-environment-bytes></script>
+    </div>
+  </main>
+</body>
+</html>
